@@ -1,0 +1,36 @@
+//page 409 127写到磁盘，然后读字符的时候判断能否打印
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+void main(){
+	FILE *fp ;
+	char ch;
+	int i;
+					 printf("127写到磁盘，然后读字符的时候判断能否打印\n");
+	if((fp=fopen("aa.txt","wb"))==NULL){
+		printf("fail to open");
+		exit(0); 
+		}		
+		for(i=127;i>=0;i--){
+			fputc(i,fp);
+			}	
+		fclose(fp);
+		
+		
+		if((fp=fopen("aa.txt","rb"))==NULL){
+		printf("fail to open");
+		exit(0); 
+		}
+		
+		 while(!feof(fp)){
+		 	ch=fgetc(fp);
+		 	if (!iscntrl(ch)){
+		 		putchar(ch);
+		 	//	printf("%c\t",ch);
+		 		}else{
+		 			printf("%d",ch);
+		 		}
+		 //	ch=fgetc(fp);
+		 	} 
+		 	fclose(fp);
+	}

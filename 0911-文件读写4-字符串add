@@ -1,0 +1,24 @@
+//412 从键盘输入字符串添加到末尾
+#include <stdio.h>
+#include <stdlib.h>
+void main()
+{
+	FILE *fp;
+	char ch[50]; 
+	printf("412 从键盘输入字符串添加到末尾\n");
+	if((fp = fopen("aa.txt","a"))==NULL){
+		printf("cannot open");
+		exit(0);
+		}
+		gets(ch);
+		fputs(ch,fp);
+		fclose(fp); 
+		
+		if((fp = fopen("aa.txt","r"))==NULL){
+		printf("cannot open！");
+		exit(0);
+		}
+		fgets(ch,50,fp);
+		puts(ch);
+		fclose(fp); 
+}

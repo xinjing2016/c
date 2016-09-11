@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void main()
+{
+	FILE *fp;
+	fp = fopen("aa.txt","w"); 
+	//fp = fopen("aa.txt","r");
+	//fp = fopen("aa.txt","a+");
+	char ch;
+	if ( fp ==NULL ){
+		printf("cannot open\n"); 
+		exit (0);
+		} 
+	printf("从键盘输入到文件里，enter结束输入\n");
+	ch = getchar();
+	while (ch!='\n'){
+		fputc(ch,fp);
+		ch = getchar(); 
+		}	
+		fclose(fp); 
+	printf("文件写结束\n");
+	
+}
