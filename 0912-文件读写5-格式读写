@@ -1,0 +1,98 @@
+// 按照格式读写文件
+#include <stdio.h>
+#include <stdlib.h>
+#define N 30
+typedef struct date
+{
+	int year;
+	int month;
+	int day;
+} DATE;
+typedef struct students
+{
+	long id;
+	char name[10];
+	char sex;
+	DATE birth;
+	int score[4];
+	float ave;
+} STU;
+void input(STU stu1[], int i, int j);
+void aver(STU stu1[], int i, int j);
+void write(STU stu1[], int i, int j);
+
+void main()
+{
+
+	int n = 1;
+	// STU stu1[2] = { {123, "ert", 'f', {1993, 3, 3}, {99, 89, 80, 79},
+	// 78.5},
+	// {123, "ert", 'f', {1993, 3, 3}, {78, 98, 80, 79}, 90.5}
+	//  };
+	STU stu1[N];
+	printf("how many studens?\n");
+	scanf("%d", &n);
+	printf("%d\n", n);
+	input(stu1, n, 4);
+	aver(stu1, n, 4);
+
+	write(stu1, n, 4);
+
+	printf("end");
+}
+
+void input(STU stu1[], int i, int j)
+{
+	int k, m;
+	
+	for (k = 0; k < i; k++)
+	{
+		printf("please input %d\n",k+1);
+		scanf("%ld", &stu1[k].id);
+		scanf("%s", stu1[k].name);
+		getchar();
+		scanf("%c", &stu1[k].sex);
+		scanf("%d%d%d", &stu1[k].birth.year, &stu1[k].birth.month, &stu1[k].birth.day);
+		for (m = 0; m < j; m++)
+		{
+			scanf("%d", &stu1[k].score[m]);
+		}
+	}
+}
+
+void aver(STU stu1[], int i, int j)
+{
+	
+	int k, m;
+	for (k = 0; k < i; k++)
+	{
+		float sum = 0;
+		for (m = 0; m < j; m++)
+		{
+			sum += stu1[k].score[m];
+		}
+		stu1[k].ave = sum / j;
+	}
+}
+
+void write(STU stu1[], int i, int j)
+{
+	FILE *fp;
+	int n, m;
+	if ((fp = fopen("aa.txt", "w")) == NULL)
+	{
+		printf("failed to open");
+		exit(0);
+	}
+	for (n = 0; n < i; n++)
+	{
+		fprintf(fp, "%8ld%8s%c%6d/%02d/%02d", stu1[n].id, stu1[n].name, stu1[n].sex,
+				stu1[n].birth.year, stu1[n].birth.month, stu1[n].birth.day);
+		for (m = 0; m < j; m++)
+		{
+			fprintf(fp, "%3d", stu1[n].score[m]);
+		}
+		fprintf(fp, "%6.1f\n", stu1[n].ave);
+	}
+	fclose(fp);
+}

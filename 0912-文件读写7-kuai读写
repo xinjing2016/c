@@ -1,0 +1,59 @@
+// 按照格式读写文件
+#include <stdio.h>
+#include <stdlib.h>
+#define N 30
+typedef struct date
+{
+	int year;
+	int month;
+	int day;
+} DATE;
+typedef struct students
+{
+	long id;
+	char name[10];
+	char sex;
+	DATE birth;
+	int score[4];
+	float ave;
+} STU;
+int read(STU stu1[],int i); 
+void prin(STU stu1[],int i,int j); 
+void main()
+{
+	int n = 1;
+	STU stu1[N];
+
+	n=read(stu1,4);
+	printf("%d\n",n);
+	prin(stu1, n ,4);
+
+	printf("end");
+}
+
+int read(STU stu1[],int i){
+	FILE *fp ;
+	int n ,m;
+	if((fp=fopen("aa.txt","r"))==NULL){
+		printf("fail to open");
+		exit(0);
+		}
+		for(n=0;!feof(fp);n++){
+		fread(&stu1[n],sizeof(STU),1,fp);
+		}
+			
+	fclose(fp);
+	return n-1; 
+	}
+	
+	
+void prin(STU stu1[],int i,int j){
+	int n, m;
+	for (n = 0; n <i; n++)
+	{
+		printf( "%8ld%8s%c%3d%2d/%2d/%d\n\n", stu1[n].id, stu1[n].name, stu1[n].sex,stu1[n].birth.year, stu1[n].birth.month, stu1[n].birth.day);
+	
+//	fclose(fp);
+
+	} 
+}
