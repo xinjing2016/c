@@ -1,0 +1,29 @@
+//字符指针
+#include <stdio.h>
+//实参和形参都是数组
+void copy(char a[],char str[]){
+	int i= 0;
+	for(;str[i]!='\0';i++){
+		a[i]= str[i];
+		} 
+	a[i]='\0'; 
+	printf("%s\n",a);
+	}
+
+//形参是指针	
+void copy1(char *a , char *str){
+      for(;*str!='\0';str++){
+      	*a = *str ;
+      	a++; 
+      	}
+      *a='\0';
+	} 
+void main(){
+	//初始化
+	char * str ="i love you too";
+	char b[]="bbbbb";
+	char a[]="";
+	copy1(b,str);
+	printf("%s\n",b);
+	 
+	}
