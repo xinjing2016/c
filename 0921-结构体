@@ -1,0 +1,36 @@
+//jiegouti 
+#include <stdio.h>
+void main(){
+	//定义结构体
+	struct date {
+		int year;
+		int mouth ;
+		int day;
+		};
+	
+	struct student {
+		long id;
+		char name[20];
+		char sex;
+		int age;
+		struct date birthday;  
+	}stu1,stu2={201131434,"hi",'m',22,{22,33,44},},stu3[2];
+	
+	int i,j ;
+	stu1=stu2;
+//	printf("%15ld,%5s\n",stu1.id,stu1.name);
+	//结构体数组初始化
+	for(i=0;i<3;i++){
+		//scanf("%d,%s,% c",&stu3[i].id,stu3[i].name,&stu3[i].sex);
+	scanf("%ld",&stu3[i].id);
+	scanf("%s",stu3[i].name);
+	getchar();
+	scanf("%c",&stu3[i].sex);
+	}
+//	printf("%s",stu3[0].name);
+
+	for(j=0;j<3;j++){
+		printf("%d,%s,%c\n",stu3[j].id,stu3[j].name,stu3[j].sex);
+		}
+	
+	}
