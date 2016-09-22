@@ -1,0 +1,60 @@
+//指针函数求定积分q
+#include <stdio.h>
+#include <math.h>
+float fun1(float x){
+	return x+x*x/2;
+	}
+	
+float fun2(float x){
+	return x*x+3*x;
+	}
+	
+float fun3(float x){
+	return exp(x)+x;
+	}	
+
+float fun4(float x){
+	return x+x*x+pow(x,3)/3;
+	}
+	
+float fun5(float x ){
+	return pow(x,4)/4;
+	}
+	
+float last(float a,float b,float (*p)(float x)){
+	return (*p)(a)-(*p)(b);
+	}			
+void main(){
+	float (*p)(float);
+	float a,b;
+	
+	printf("积分上下限：\n");
+	scanf("%f%f",&a,&b);
+	
+	p=fun1;
+	printf("1+x is %5.2f\n",last(a,b,p));
+	
+	p=fun2;
+	printf("2x+3 is %5.2f\n",last(a,b,p));
+	
+	p=fun3;
+	printf("ex+1 is %5.2f\n",last(a,b,p));
+	
+	p=fun4;
+	printf("(1+x)(1+x)  is %5.2f\n",last(a,b,p));
+	
+	p=fun5;
+	printf("x*x*x is %5.2f\n",last(a,b,p));
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+

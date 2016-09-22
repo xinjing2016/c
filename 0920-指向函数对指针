@@ -1,0 +1,15 @@
+//指向函数对指针(找出ab之间的最大值)A
+#include <stdio.h>
+int max(int a,int b){
+	return a>b?:a,b;
+	}
+
+void main(){
+	int (*p)(int ,int );//pointer of function
+	int a,b;
+	printf("  指向函数对指针(找出ab之间的最大值)\n ");
+	printf("please input a and b\n");
+	scanf("%d%d",&a,&b);
+	p = max;//赋值
+	printf("%d,%d,%d",a,b,(*p)(a,b));	//调用
+	}

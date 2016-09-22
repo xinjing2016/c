@@ -1,0 +1,19 @@
+//返回值是指针（按学号查找成绩）q
+#include <stdio.h>
+int * search(int a[][4],int n){
+	int *pt  ;
+	pt =a+n-1;
+	return (a+n-1) ;
+	}
+
+void main(){
+	int a[][4]={{88,99,78,67},{90,89,78,67},{66,88,99,69},{95,81,74,34}};
+	int n ,*pt,i;
+	printf("返回值是指针（按学号查找成绩）please input the num\n");
+	scanf("%d",&n);
+	 pt = search(a,n);
+	 for(i=0;i<4;i++){
+	 	printf("%5d",*(pt+i));
+	 	}
+	
+	} 

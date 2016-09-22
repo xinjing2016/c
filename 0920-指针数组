@@ -1,0 +1,40 @@
+//指针数组，按照字典顺序排列q
+#include <stdio.h>
+void sort(char *name[] , int n){
+	char *pt ;
+	int i ,j,k ;
+	
+	for (i=0;i<n-1;i++){
+		pt = name[i];
+		for (j=i+1;j<n;j++){
+			if(strcmp(pt,name[j])>0){
+			 	// k = j; 
+			 	pt = name[j];
+			} 
+			if(pt != name[i]  ){
+				name[j] = name[i];
+			 	name[i]=pt;
+				}
+		//	pt = name[j];
+			 
+			}
+		} 
+		
+		
+   	
+	}
+void main(){
+   
+   char *name[10]={"bbb","abz","baa"};
+   char *pt=name[0];
+   int i= 0;
+   
+   sort(name, 3);
+   
+   
+		for(i=0;i<3;i++){
+   	pt = *(name + i);
+   	printf("%s\n",pt);  
+	}
+	
+	}
