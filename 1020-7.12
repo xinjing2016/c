@@ -1,0 +1,35 @@
+ #include <stdio.h>
+ void main(){
+ 	//排序
+ 	printf("选择法进行排序,please input 10 numbers\n");
+ 	int a[10],i,j,k,tem;
+ 	for (i=0;i<10;i++){
+ 		scanf("%d",&a[i]);
+ 		}
+ 		
+// 	
+ 	for (i=0;i<9;i++ ){
+ 		k= i;
+ 		for (j=i+1;j<10;j++){
+ 			if (a[j]<a[i]){        
+ 				k=j;
+ 				}
+ 			}
+ 			if (k!=i){
+ 				tem = a[k];
+ 				a[k]=a[i];
+ 				a[i]=tem;
+ 				}
+ 		}
+ 		
+ 		
+ 		
+ 	for (k=0;k<10;k++){
+ 		printf("%5d",a[k]);
+ 		}
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	}
