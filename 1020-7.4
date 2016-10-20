@@ -1,0 +1,23 @@
+#include <stdio.h>
+void main(){
+	//数组插入
+	int a[5]={1,3,5,7},i,j,k,n;
+	printf("insert into array,please input a num\n");
+	scanf("%d",&n);
+	if (n>=a[3]) a[4]=n;
+	else{
+		for (i=3;i>0;i--){
+		if (a[i]<=n) break;
+		}
+		for (j=4;j>i;j--)
+	  	a[j]=a[j-1];
+		a[i+1]=n;
+		
+//printf("%d",i);
+		
+		}
+		for (k=0;k<5;k++){
+			printf("%5d",a[k]);
+			}
+	
+	}
