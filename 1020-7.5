@@ -1,0 +1,21 @@
+#include  <stdio.h>
+void main(){
+	//逆向输出数组
+	int a[5] , i ,tem;
+	printf("please input 5 numbers\n");
+	 for (i=0;i<5;i++){
+	 	scanf("%d",&a[i]);
+	 	}
+	  
+	for (i=0;i<5/2;i++){
+		tem = a[i];
+		a[i]= a[4-i];
+		a[4-i]=tem;
+		}
+	for (i=0;i<5;i++){
+	 	printf("%5d",a[i]);
+	 	}
+	}
+
+
+
