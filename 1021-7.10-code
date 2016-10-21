@@ -1,0 +1,26 @@
+#include <stdio.h>
+void main(){
+	//code
+	char a[]={"egSGKYLhg2aP"},b[30];
+	int i,j;
+	for (  i=0;a[i]!='\0';i++ ){
+		printf("%c",a[i]);
+		}
+	printf("\n");
+	for (i=0;a[i]!='\0';i++){
+		if (a[i]<='Z'&&a[i]>='A'){
+			b[i] = 155 - a[i];
+		}
+		else if (a[i]<='z'&&a[i]>='a'){
+			b[i] = 219 - a[i];
+			}else {
+				b[i]=a[i];
+				}
+		
+		}
+	for (  i=0;a[i]!='\0';i++ ){
+		printf("%c",b[i]);
+		}
+	
+	
+	}
