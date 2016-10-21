@@ -1,0 +1,32 @@
+#include <stdio.h>
+void main(){
+	//寻找鞍点
+	int a[3][3]={1,2,3,4,5,6,7,8,10},i,j,k,y,flag;
+	for (i=0;i<3;i++){
+		//找出行的最大值
+		k=a[i][1];  
+		for (j=1;j<3;j++){
+			if (a[i][j] >a[i][1]){k=a[i][j];y=j;}
+			}
+		
+		
+		
+		//将最大值和每一列比较😊
+   	for (j=0;j<3;j++){
+   		if (a[j][y]<k){
+   			flag = 0;
+   			break;
+   			}else {flag=1;}
+   		}
+   		if (flag){
+   			printf("%3d",k);
+   		}else {printf("not exist");}
+   			
+   			
+			}//for end
+	
+	
+	
+	
+	
+	}
